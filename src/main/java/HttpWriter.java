@@ -39,7 +39,7 @@ class HttpWriter {
 		}
 
 
-		File theFile = new File(rootDirectory, this.hosts.get(host) + "/" + fileName.substring(1, fileName.length()));
+		File theFile = new File(rootDirectory, "/classes/" + this.hosts.get(host) + "/"+ fileName.substring(1, fileName.length()));
 		if (theFile.canRead() && theFile.getCanonicalPath().startsWith(root)) {
 			byte[] theData = Files.readAllBytes(theFile.toPath());
 			if (version.startsWith("HTTP/")) { // send a MIME header
@@ -54,7 +54,7 @@ class HttpWriter {
 				SimpleServlet servlet = (SimpleServlet) Class.forName(this.servlet.get(fileName)).newInstance();
 				servlet.service(request, response);
 			} else {
-				String errorFileName = "404error.html";
+				String errorFileName = "classes/404error.html";
 				writeErrorPage(out, errorFileName, "HTTP/1.0 404 File Not Found");
 			}
 		}

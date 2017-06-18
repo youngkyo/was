@@ -63,7 +63,7 @@ public class RequestProcessor implements Runnable {
 			String hosts = tokens[4];
 			String host = hosts.split(":")[0];
 			if (!HttpUtils.isSecurityValid(tokens[1])) {
-				String errorFileName = "403error.html";
+				String errorFileName = "classes/403error.html";
 				httpWriter.writeErrorPage(out, errorFileName, "HTTP/1.0 403 Forbidden");
 				connection.close();
 				return;
@@ -72,7 +72,7 @@ public class RequestProcessor implements Runnable {
 			if (method.equals("GET")) {
 				httpWriter.writeGetPage(raw, out, tokens, host);
 			} else {
-				String errorFileName = "501error.html";
+				String errorFileName = "classes/501error.html";
 				httpWriter.writeErrorPage(out, errorFileName, "HTTP Error 501: Not Implemented");
 			}
 		} catch (IOException | IllegalAccessException | InstantiationException | ClassNotFoundException ex) {

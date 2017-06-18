@@ -21,7 +21,7 @@ public class HttpServer {
 	private final HttpServerConfig httpServerConfig;
 
 	public HttpServer(HttpServerConfig config) throws IOException {
-		this.rootDirectory = new File(config.getRootDir());
+		this.rootDirectory = new File("" + config.getRootDir());
 		this.port = config.getPort();
 		httpServerConfig = config;
 	}
@@ -47,7 +47,7 @@ public class HttpServer {
 		HttpServerConfig config = null;
 		Gson gson = new Gson();
 		try {
-			JsonReader jsonReader = new JsonReader(new FileReader("config.json"));
+			JsonReader jsonReader = new JsonReader(new FileReader("classes/config.json"));
 			config = gson.fromJson(jsonReader, HttpServerConfig.class);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
