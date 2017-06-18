@@ -1,0 +1,16 @@
+{
+  "rootDir": "src/main/resources",
+  "port": "8080",
+  "hosts": {
+	"a.com": "a",
+	"b.com": "b"
+  },
+  "servlet": {
+	"/Greeting" : "servlet.Hello",
+	"/super.Greeting": "servlet.service.Hello",
+	"/time" : "servlet.TimeServlet"
+  },
+  "403": "403error.html",
+  "404": "404error.html",
+  "500": "500error.html"
+}
