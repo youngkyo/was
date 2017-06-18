@@ -38,7 +38,6 @@ class HttpWriter {
 			version = tokens[2];
 		}
 
-
 		File theFile = new File(rootDirectory, "/classes/" + this.hosts.get(host) + "/"+ fileName.substring(1, fileName.length()));
 		if (theFile.canRead() && theFile.getCanonicalPath().startsWith(root)) {
 			byte[] theData = Files.readAllBytes(theFile.toPath());
@@ -54,7 +53,7 @@ class HttpWriter {
 				SimpleServlet servlet = (SimpleServlet) Class.forName(this.servlet.get(fileName)).newInstance();
 				servlet.service(request, response);
 			} else {
-				String errorFileName = "classes/404error.html";
+				String errorFileName = "classes/error404.html";
 				writeErrorPage(out, errorFileName, "HTTP/1.0 404 File Not Found");
 			}
 		}
